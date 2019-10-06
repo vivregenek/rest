@@ -1,20 +1,22 @@
 package models.requests;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Builder;
 import lombok.Getter;
 
 @Builder
 @Getter
-//@JsonIgnoreProperties(ignoreUnknown=true)
+@JsonIgnoreProperties(ignoreUnknown=true)
 public class CreateUserRequest {
-//    @JsonProperty()
+    @JsonProperty()
     private String email;
-//    @JsonProperty()
+    @JsonProperty()
     private String name;
-//    @JsonProperty()
+    @JsonProperty()
     private String phone;
-//    @JsonProperty()
+    @JsonProperty()
     private String userName;
-//    @JsonProperty()
+    @JsonProperty()
     private String website;
 }
