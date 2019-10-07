@@ -14,7 +14,6 @@ public class RequestSpecificationFactory {
                 .setBasePath(basePath)
                 .setAccept(ContentType.JSON)
                 .setContentType(ContentType.JSON)
-                .log(LogDetail.ALL)
                 .build();
     }
 
@@ -24,7 +23,6 @@ public class RequestSpecificationFactory {
                 .setBasePath(basePath)
                 .setAccept(ContentType.XML)
                 .setContentType(ContentType.XML)
-                .log(LogDetail.ALL)
                 .build();
     }
 }

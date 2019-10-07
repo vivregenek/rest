@@ -4,7 +4,6 @@ import controllers.UserController;
 import core.DataHelper;
 import models.requests.CreateUserRequest;
 import models.responses.UsersResponse;
-import models.responses.errors.InvalidCreateUserResponse;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
@@ -15,7 +14,6 @@ public class CreateUsersTest {
     @AfterEach
     public void after() {
         UserController.delete(createUserRequest.getUserName(), 204);
-        System.out.println("after");
     }
 
     @Test

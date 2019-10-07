@@ -27,59 +27,46 @@ public class RestClient {
     }
 
     /**
-     * Send request with custom RequestSpecification
-     * @param method Method: GET, POST, DELETE. etc
-     * @param endpoint String: service endpoint
-     * @param specification RequestSpecification: for custom request, for example headers, parameters, body etc
-     * @return
-     */
-//    public <T> T sendRequest(Method method, String endpoint, Class<T> cls, RequestSpecification specification) {
-//        T response;
-//        response = given().spec(specification).request(method, endpoint).then().extract().body().as(cls);
-//        return response;
-//    }
-
-    /**
      * Send request
      * @param method   Method: GET, POST, DELETE. etc
      * @param endpoint String: service endpoint
      * @return
      */
     public Response sendRequest(Method method, String endpoint, int status) {
-        return given().spec(requestSpecification).request(method, endpoint).then().statusCode(status).extract().response();
+        return given().log().ifValidationFails().spec(requestSpecification).request(method, endpoint).then().log().ifError().statusCode(status).extract().response();
     }
 
     /**
      * Send request with custom RequestSpecification
-     * @param method               Method: GET, POST, DELETE. etc
-     * @param endpoint             String: service endpoint
+     * @param method Method: GET, POST, DELETE. etc
+     * @param endpoint String: service endpoint
      * @param requestSpecification RequestSpecification: for custom request, for example headers, parameters, body etc
      * @return
      */
     public Response sendRequest(Method method, String endpoint, RequestSpecification requestSpecification, int status) {
-        return given().spec(requestSpecification).request(method, endpoint).then().log().ifError().statusCode(status).extract().response();
+        return given().log().ifValidationFails().spec(requestSpecification).request(method, endpoint).then().log().ifError().statusCode(status).extract().response();
     }
 
     /**
      * Send request with custom ResponseSpecification
-     * @param method                Method: GET, POST, DELETE. etc
-     * @param endpoint              String: service endpoint
+     * @param method Method: GET, POST, DELETE. etc
+     * @param endpoint String: service endpoint
      * @param responseSpecification ResponseSpecification: for custom response, for example
      * @return
      */
     public Response sendRequest(Method method, String endpoint, ResponseSpecification responseSpecification) {
-        return given().request(method, endpoint).then().spec(responseSpecification).log().ifError().extract().response();
+        return given().log().ifValidationFails().request(method, endpoint).then().spec(responseSpecification).log().ifError().extract().response();
     }
 
     /**
      * Send request with custom ResponseSpecification
-     * @param method                Method: GET, POST, DELETE. etc
-     * @param endpoint              String: service endpoint
-     * @param requestSpecification  RequestSpecification: for custom request, for example headers, parameters, body etc
+     * @param method Method: GET, POST, DELETE. etc
+     * @param endpoint String: service endpoint
+     * @param requestSpecification RequestSpecification: for custom request, for example headers, parameters, body etc
      * @param responseSpecification ResponseSpecification: for custom response, for example
      * @return
      */
     public Response sendRequest(Method method, String endpoint, RequestSpecification requestSpecification, ResponseSpecification responseSpecification) {
-        return given().spec(requestSpecification).request(method, endpoint).then().spec(responseSpecification).extract().response();
+        return given().log().ifValidationFails().spec(requestSpecification).request(method, endpoint).then().log().ifError().spec(responseSpecification).extract().response();
     }
 }
