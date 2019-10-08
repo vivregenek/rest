@@ -2,7 +2,6 @@ package api.tests.createUser;
 
 import api.controllers.UserController;
 import api.models.requests.RegisterUserRequest;
-import api.models.responses.GetCustomerResponse;
 import core.DataHelper;
 import core.JsonSchemaValidation;
 import io.restassured.response.Response;
