@@ -10,15 +10,15 @@ import lombok.ToString;
 @Getter
 @ToString
 @JsonIgnoreProperties(ignoreUnknown=true)
-public class CreateUserRequest {
+public class RegisterUserRequest {
     @JsonProperty()
     private String email;
     @JsonProperty()
-    private String name;
+    private String firstName;
     @JsonProperty()
-    private String phone;
+    private String lastName;
+    @JsonProperty()
+    private String password;
     @JsonProperty()
     private String userName;
-    @JsonProperty()
-    private String website;
 }
