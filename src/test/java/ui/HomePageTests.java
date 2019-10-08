@@ -13,7 +13,7 @@ public class HomePageTests extends BaseUiTestClass {
     @smoke
     @Test
     void portalHomePageTabsCheck() {
-        open(PropertyReader.getGlobalProperty("base_url"));
+        open(PropertyReader.getGlobalProperty("host"));
         homePage.homeTab().shouldHave(Condition.text("Home"));
         homePage.catalogueTab().shouldHave(Condition.text("Catalogue"));
     }
@@ -21,7 +21,7 @@ public class HomePageTests extends BaseUiTestClass {
     @smoke
     @Test
     void portalHomePageButtonsCheck() {
-        open(PropertyReader.getGlobalProperty("base_url"));
+        open(PropertyReader.getGlobalProperty("host"));
         homePage.basketButton().shouldHave(Condition.text("0 items in cart"));
         homePage.loginButton().shouldHave(Condition.text("Login"));
         homePage.registerButton().shouldHave(Condition.text("Register"));

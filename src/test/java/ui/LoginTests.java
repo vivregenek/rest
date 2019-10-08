@@ -13,7 +13,7 @@ public class LoginTests extends BaseUiTestClass {
 
     @Test
     void loginWithExistingUser() {
-        open(PropertyReader.getGlobalProperty("base_url"));
+        open(PropertyReader.getGlobalProperty("host"));
         homePage.loginButton().click();
         loginPopUpPage.loginTitle().shouldHave(Condition.text("Customer login"));
         loginPopUpPage.userNameField().val(PropertyReader.getGlobalProperty("portal_user_name"));
@@ -24,7 +24,7 @@ public class LoginTests extends BaseUiTestClass {
 
     @Test
     void loginWithIncorrectPassword() {
-        open(PropertyReader.getGlobalProperty("base_url"));
+        open(PropertyReader.getGlobalProperty("host"));
         homePage.loginButton().click();
         loginPopUpPage.loginTitle().shouldHave(Condition.text("Customer login"));
         loginPopUpPage.userNameField().val(PropertyReader.getGlobalProperty("portal_user_name"));

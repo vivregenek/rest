@@ -23,7 +23,7 @@ public class BaseUiTestClass {
         Exist issue with set capabilities by default method.
         Issue link:  https://github.com/codeborne/selenide/issues/676
         Configuration.browser = getBrowserName();
-        Configuration.remote = DataReader.getPropertyValueByKey("HUB_URL");
+        Configuration.remote = DataReader.getPropertyValueByKey("host");
         MutableCapabilities options = getOptions();
         Configuration.browserCapabilities = new DesiredCapabilities();
         Configuration.browserCapabilities.setCapability(ChromeOptions.CAPABILITY, options);
