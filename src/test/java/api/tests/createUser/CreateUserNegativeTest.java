@@ -1,4 +1,4 @@
-package api.createUser;
+package api.tests.createUser;
 
 import api.controllers.UserController;
 import api.models.requests.CreateUserRequest;
