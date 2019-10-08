@@ -1,4 +1,4 @@
-package core;
+package core.rest;
 
 import io.restassured.builder.ResponseSpecBuilder;
 import io.restassured.filter.log.LogDetail;

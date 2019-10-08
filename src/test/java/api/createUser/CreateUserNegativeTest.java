@@ -1,8 +1,8 @@
-package createUser;
+package api.createUser;
 
-import controllers.UserController;
-import models.requests.CreateUserRequest;
-import models.responses.errors.InvalidCreateUserResponse;
+import api.controllers.UserController;
+import api.models.requests.CreateUserRequest;
+import api.models.responses.errors.InvalidCreateUserResponse;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;

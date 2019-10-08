@@ -1,28 +1,26 @@
-package controllers;
+package api.controllers;
 
 import core.AllureAttachmentHelper;
-import core.RestClient;
+import core.rest.RestClient;
 import io.qameta.allure.Allure;
-import io.qameta.allure.Step;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.builder.ResponseSpecBuilder;
 import io.restassured.http.Method;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
-import models.requests.CreateUserRequest;
+import api.models.requests.CreateUserRequest;
 
 public class UserController {
 
     public static final String USER_ENDPOINT = "/user";
     public static final String USERS_ENDPOINT = "/users";
 
-    static final String basePath  = "/api";
     static RestClient restClient;
     static String url;
     static {
-        restClient = new RestClient(basePath);
-        url = System.getProperty("host") + basePath;
+        restClient = new RestClient();
+        url = System.getProperty("host");
     }
 
 //    @Step("Get list users")

@@ -1,9 +1,9 @@
-package createUser;
+package api.createUser;
 
-import controllers.UserController;
+import api.controllers.UserController;
 import core.DataHelper;
-import models.requests.CreateUserRequest;
-import models.responses.UsersResponse;
+import api.models.requests.CreateUserRequest;
+import api.models.responses.UsersResponse;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 

@@ -1,4 +1,4 @@
-package core;
+package core.rest;
 
 import io.restassured.RestAssured;
 import io.restassured.http.Method;
@@ -12,8 +12,8 @@ public class RestClient {
     RequestSpecification requestSpecification;
     ResponseSpecification responseSpecification;
 
-    public RestClient(String basePath) {
-        this.requestSpecification = RequestSpecificationFactory.getJsonRequestSpecification(basePath);
+    public RestClient() {
+        this.requestSpecification = RequestSpecificationFactory.getJsonRequestSpecification();
         this.responseSpecification = ResponseSpecificationFactory.getResponseSpecification();
         RestAssured.requestSpecification = requestSpecification;
         RestAssured.responseSpecification = responseSpecification;

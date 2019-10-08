@@ -1,4 +1,4 @@
-package models.responses.errors;
+package api.models.responses.errors;
 
 import lombok.Data;
 
