@@ -13,6 +13,6 @@ public class AllureAttachmentHelper {
     public static void logRestCall(String url, String method, String response){
         Allure.addAttachment("url", url);
         Allure.addAttachment("method", method);
-        Allure.addAttachment("method", response);
+        Allure.addAttachment("response body", response);
     }
 }
