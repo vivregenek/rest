@@ -2,27 +2,34 @@ package ui;
 
 import com.codeborne.selenide.Condition;
 import core.ui.BaseUiTestClass;
+import core.ui.PropertyReader;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.By;
-
-import static com.codeborne.selenide.Selenide.$;
+import ui.pageObjects.HomePage;
+import ui.pageObjects.LoginPopUpPage;
 
 public class LoginTests extends BaseUiTestClass {
+    private HomePage homePage = new HomePage();
+    private LoginPopUpPage loginPopUpPage = new LoginPopUpPage();
+
     @Test
     void loginWithExistingUser() {
-        open("http://ec2-54-91-163-195.compute-1.amazonaws.com/index.html");
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-        $(By.id("login")).click();
-        $(By.id("Login")).shouldHave(Condition.text("Customer login"));
-        $(By.id("username-modal")).val("user");
-        $(By.id("password-modal")).val("password");
-        $(".modal-body button").click();
-        System.out.println("The test is almost finished");
-        $("#logout a").shouldBe(Condition.text("Logout"));
+        open(PropertyReader.getGlobalProperty("base_url"));
+        homePage.loginButton().click();
+        loginPopUpPage.loginTitle().shouldHave(Condition.text("Customer login"));
+        loginPopUpPage.userNameField().val(PropertyReader.getGlobalProperty("portal_user_name"));
+        loginPopUpPage.userPasswordField().val(PropertyReader.getGlobalProperty("portal_user_password"));
+        loginPopUpPage.loginButton().click();
+        homePage.logoutButton().shouldBe(Condition.text("Logout"));
+    }
+
+    @Test
+    void loginWithIncorrectPassword() {
+        open(PropertyReader.getGlobalProperty("base_url"));
+        homePage.loginButton().click();
+        loginPopUpPage.loginTitle().shouldHave(Condition.text("Customer login"));
+        loginPopUpPage.userNameField().val(PropertyReader.getGlobalProperty("portal_user_name"));
+        loginPopUpPage.userPasswordField().val("IncorrectPortalUserPassword");
+        loginPopUpPage.loginButton().click();
+        loginPopUpPage.errorMessage().shouldBe(Condition.text("Invalid login credentials."));
     }
 }
