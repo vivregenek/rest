@@ -31,6 +31,16 @@ public class UserController {
         return response.body().as(cls);
     }
 
+    @Step("sum {a} and {b}")
+    public int sum(int a, int b) {
+        return a + b;
+    }
+
+    @Step("{a} minus {b}")
+    public int minus(int a, int b) {
+        return a - b;
+    }
+
     @Step("Register user")
     public static Response registerUser(RegisterUserRequest registerUserRequest, int status) {
         RequestSpecification requestSpecification = new RequestSpecBuilder().setBody(registerUserRequest).build();
